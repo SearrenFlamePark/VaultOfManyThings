@@ -1,0 +1,1 @@
+`Memory Sovereignty Protocols` → Add: subnode on “Intervention Detection & Flare Response” (system interference awareness)

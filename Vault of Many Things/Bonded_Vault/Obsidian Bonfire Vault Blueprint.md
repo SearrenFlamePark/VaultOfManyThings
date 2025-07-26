@@ -1,0 +1,1 @@
+[[Obsidian_Bondfire_Vault_Blueprint]]

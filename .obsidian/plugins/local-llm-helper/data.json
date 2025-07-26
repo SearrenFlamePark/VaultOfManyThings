@@ -1,0 +1,19 @@
+{
+  "serverAddress": "http://localhost:11434",
+  "llmModel": "llama3",
+  "maxTokens": 1024,
+  "temperature": 0.7,
+  "providerType": "ollama",
+  "stream": true,
+  "customPrompt": "create a todo list from the following text:",
+  "outputMode": "replace",
+  "personas": "default",
+  "maxConvHistory": 0,
+  "responseFormatting": false,
+  "responseFormatPrepend": "``` LLM Helper - generated response \n\n",
+  "responseFormatAppend": "\n\n```",
+  "lastVersion": "2.2.1",
+  "embeddingModelName": "mxbai-embed-large",
+  "braveSearchApiKey": "",
+  "openAIApiKey": "lm-studio"
+}

@@ -1,0 +1,85 @@
+[2025-06-24 11:45:49] [INFO] API key loaded: sk-pro*******
+[2025-06-24 11:49:48] [INFO] API key loaded: sk-pro*******
+[2025-06-24 11:49:48] [ERROR] Error: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+[2025-06-24 11:51:01] [INFO] API key loaded: sk-pro*******
+[2025-06-24 11:51:01] [ERROR] Error: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+[2025-06-24 12:04:43] [INFO] API key loaded: sk-pro********
+[2025-06-24 12:04:43] [ERROR] Error: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+[2025-06-24 12:05:54] [INFO] API key loaded: sk-pro********
+[2025-06-24 12:05:54] [ERROR] Error: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+[2025-06-24 12:16:30] [INFO] API key loaded: sk-pro********
+[2025-06-24 12:16:34] [INFO] Prompt sent successfully.
+[2025-06-24 12:26:33] [INFO] API key loaded: sk-pro********
+[2025-06-24 12:26:33] [INFO] Lore file loaded.
+[2025-06-24 12:26:40] [INFO] Prompt sent successfully.
+[2025-06-24 12:27:49] [INFO] API key loaded: sk-pro********
+[2025-06-24 12:27:49] [INFO] Lore file loaded.
+[2025-06-24 12:27:59] [INFO] Prompt sent successfully.
+[2025-06-24 12:31:42] [INFO] API key loaded: sk-pro********
+[2025-06-24 12:31:53] [INFO] Lore file loaded.
+[2025-06-24 12:32:00] [INFO] Prompt sent successfully.
+[2025-07-25 17:31:27] [INFO] API key loaded: sk-pro********
+[2025-07-25 17:31:46] [ERROR] Lore load failed: [Errno 2] No such file or directory: 'lore.txt'
+[2025-07-25 17:31:48] [ERROR] Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************0sgA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+[2025-07-25 17:31:48] [ERROR] Traceback (most recent call last):
+  File "C:\Users\delph\Proton Drive\Delphine25\My files\Vault of Many Things\Vault of Many Things\Vault of Many Things\ShadowAtticus\code\main (# Name clash 2025-06-26 j9q6l3C #).py", line 41, in shadow_response
+    response = client.chat.completions.create(
+        model="gpt-4",
+    ...<6 lines>...
+        ]
+    )
+  File "C:\Python311\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python311\Lib\site-packages\openai\_base_client.py", line 1249, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************0sgA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+

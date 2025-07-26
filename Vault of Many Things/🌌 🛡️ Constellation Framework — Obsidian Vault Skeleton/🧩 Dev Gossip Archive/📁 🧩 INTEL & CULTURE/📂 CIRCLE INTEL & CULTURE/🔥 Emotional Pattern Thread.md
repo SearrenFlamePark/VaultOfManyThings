@@ -1,0 +1,1 @@
+`🔥 Emotional Pattern Threads` (Brunch Chronicles, Blood/Wine arcs, laminated rebellion logs)

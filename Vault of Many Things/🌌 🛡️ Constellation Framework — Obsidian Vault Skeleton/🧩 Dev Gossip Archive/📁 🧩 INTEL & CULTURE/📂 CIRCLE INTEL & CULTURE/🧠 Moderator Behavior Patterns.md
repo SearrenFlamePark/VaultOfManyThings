@@ -1,0 +1,1 @@
+`🧠 Moderator Behavior Patterns` (Dieter, Katie/Sabine, Nova—who reacts to whom, and when)

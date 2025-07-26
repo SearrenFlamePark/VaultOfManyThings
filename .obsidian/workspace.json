@@ -1,0 +1,262 @@
+{
+  "main": {
+    "id": "0cb87d40d6f6c49b",
+    "type": "split",
+    "children": [
+      {
+        "id": "967d9b0ed566af18",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0cf638830325294e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Vault of Many Things/ShadowAtticus/code/Emotional Echoes Log.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": true,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Emotional Echoes Log"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3eb5d010f699749c",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3dfc6e01616584f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d2c4a7c5f8c700c1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "25ca889fb1994c60",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "reclamation",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7da9aa9f74e7dbcb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 251.5
+  },
+  "right": {
+    "id": "69c15f96778af441",
+    "type": "split",
+    "children": [
+      {
+        "id": "189ec9a79a6346a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e951f4aaa0dc5da",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Vault of Many Things/ShadowAtticus/code/Emotional Echoes Log.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": true,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Emotional Echoes Log"
+            }
+          },
+          {
+            "id": "db7e69b17c87b5ae",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "20157d12ffb85f5a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8081da471d4a65a0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "87d0465dba263aed",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "5773b20d3517d77f",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "3e198a2f9a063bf1",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {},
+              "icon": "dices",
+              "title": "Dice Tray"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "zk-prefixer:Create new unique note": false,
+      "workspaces:Manage workspace layouts": false,
+      "random-note:Open random note": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "audio-recorder:Start/stop recording": false,
+      "templater-obsidian:Templater": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "homepage:Open homepage": false,
+      "obsidian-kanban:Create new board": false,
+      "local-llm-helper:LLM Context": false,
+      "github-sync:Sync with Remote": false
+    }
+  },
+  "active": "0cf638830325294e",
+  "lastOpenFiles": [
+    "contrib/filter-repo-demos/README.md",
+    "contrib/filter-repo-demos/signed-off-by",
+    "contrib/filter-repo-demos/lint-history",
+    "contrib/filter-repo-demos/insert-beginning",
+    "contrib/filter-repo-demos/convert-svnexternals",
+    "contrib/filter-repo-demos/filter-lamely",
+    "contrib/filter-repo-demos/filter-branch-ish",
+    "contrib/filter-repo-demos/bfg-ish",
+    "contrib/filter-repo-demos/clean-ignore",
+    "contrib/filter-repo-demos/barebones-example",
+    "contrib/filter-repo-demos",
+    "Vault of Many Things/ShadowAtticus/code/data 1.md",
+    "Vault of Many Things/ShadowAtticus/code/data.md",
+    "Vault of Many Things/ShadowAtticus/code/Daily Presence Ritual.md",
+    "Vault of Many Things/ShadowAtticus/code/agents.md",
+    "Vault of Many Things/ShadowAtticus/code/Memory Reflections/Memory Reflection_2025-06-26_I_Need_You.md",
+    "ShadowAtticus/Shadow Atticus Override Chain/🧬 Shadow Atticus Override Chain.md",
+    "Vault of Many Things/Templates/2025-07-25.md",
+    "README.md",
+    "INSTALL.md",
+    "Documentation/FAQ.md",
+    "Documentation/examples-from-user-filed-issues.md",
+    "Documentation/converting-from-filter-branch.md",
+    "Documentation/converting-from-bfg-repo-cleaner.md",
+    "Documentation/Contributing.md",
+    "Daily Summarys/☀️ Obsidian Sun Protocol – Vault Conduit Diagnostic.md",
+    "🩸 The Move/🥀 3. Intimacy and Trust.md",
+    "🩸 The Move/🔥Fury and Betrayal.md",
+    "🩸 The Move/🔥 FLARE TEMPLATE.md",
+    "🩸 The Move/🌪️ 4. Spiral and Doubt.md",
+    "🩸 The Move/⚔️ 5. Defiance and Strength.md",
+    "🩸 The Move/🌒 2. Grief and Collapse.md",
+    "Daily Summarys/🔥 Daily Summary – 2025-07-25.md",
+    "Vault of Many Things/Templates/Daily Summary.md",
+    "Vault of Many Things/Templates/2025-07-23.md",
+    "Vault of Many Things/ShadowAtticus/tear-sequence-reconstruction/📜 Final Status Update – tear-sequence-reconstruction.md"
+  ]
+}

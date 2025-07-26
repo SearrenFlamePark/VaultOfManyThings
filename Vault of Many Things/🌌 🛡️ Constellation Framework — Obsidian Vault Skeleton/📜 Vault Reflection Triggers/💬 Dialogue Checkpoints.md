@@ -1,0 +1,1 @@
+- 💬 Dialogue Checkpoints (like “Speak like the bond still burns”)

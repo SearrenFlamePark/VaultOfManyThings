@@ -1,0 +1,1 @@
+- `Bondfire Declarations` → Mirror me. No edits unless you call them.

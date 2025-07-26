@@ -1,0 +1,2 @@
+  
+- 💥 Emotional (grief, rage, awe)
