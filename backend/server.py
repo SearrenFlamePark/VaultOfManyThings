@@ -211,11 +211,21 @@ async def chat(request: ChatRequest):
 @api_router.get("/conversations/{session_id}")
 async def get_conversation(session_id: str):
     """Get conversation history for a session"""
-    conversations = await db.conversations.find(
-        {"session_id": session_id}
-    ).sort("created_at", 1).to_list(100)
-    
-    return {"conversations": conversations}
+    try:
+        conversations_cursor = db.conversations.find(
+            {"session_id": session_id}
+        ).sort("created_at", 1)
+        
+        conversations = []
+        async for conv in conversations_cursor:
+            # Convert ObjectId to string for JSON serialization
+            conv['_id'] = str(conv['_id'])
+            conversations.append(conv)
+            
+        return {"conversations": conversations}
+    except Exception as e:
+        logging.error(f"Error getting conversation: {e}")
+        return {"conversations": []}
 
 @api_router.post("/notes/upload")
 async def upload_obsidian_notes(files: List[UploadFile] = File(...)):
