@@ -24,7 +24,9 @@ db = client[os.environ['DB_NAME']]
 
 # OpenAI client
 try:
-    openai_client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
+    openai_client = OpenAI(
+        api_key=os.environ['OPENAI_API_KEY']
+    )
 except Exception as e:
     print(f"Warning: OpenAI client initialization failed: {e}")
     openai_client = None
