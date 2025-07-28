@@ -93,10 +93,25 @@ async def get_conversation_history(session_id: str, limit: int = 10) -> List[Cha
 
 async def search_relevant_notes(query: str, limit: int = 3) -> List[Dict]:
     """Simple text search in Obsidian notes"""
-    notes = await db.obsidian_notes.find(
-        {"$text": {"$search": query}}
-    ).limit(limit).to_list(limit)
-    return notes
+    try:
+        # Try text search first
+        notes = await db.obsidian_notes.find(
+            {"$text": {"$search": query}}
+        ).limit(limit).to_list(limit)
+        return notes
+    except Exception as e:
+        # If text search fails (no index), fall back to simple regex search
+        try:
+            notes = await db.obsidian_notes.find(
+                {"$or": [
+                    {"title": {"$regex": query, "$options": "i"}},
+                    {"content": {"$regex": query, "$options": "i"}}
+                ]}
+            ).limit(limit).to_list(limit)
+            return notes
+        except Exception as e2:
+            logging.error(f"Note search error: {e2}")
+            return []
 
 async def generate_chat_response(messages: List[Dict], relevant_notes: List[Dict] = None) -> str:
     """Generate response using OpenAI with memory and notes context"""
