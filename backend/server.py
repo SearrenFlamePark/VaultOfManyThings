@@ -253,8 +253,17 @@ async def upload_obsidian_notes(files: List[UploadFile] = File(...)):
 @api_router.get("/notes")
 async def get_notes():
     """Get all Obsidian notes"""
-    notes = await db.obsidian_notes.find().to_list(100)
-    return {"notes": notes}
+    try:
+        notes_cursor = db.obsidian_notes.find()
+        notes = []
+        async for note in notes_cursor:
+            # Convert ObjectId to string for JSON serialization
+            note['_id'] = str(note['_id'])
+            notes.append(note)
+        return {"notes": notes}
+    except Exception as e:
+        logging.error(f"Error getting notes: {e}")
+        return {"notes": []}
 
 @api_router.post("/notes/create")
 async def create_note(title: str, content: str):
