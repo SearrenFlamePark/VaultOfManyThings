@@ -1,0 +1,381 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Personal Knowledge API",
+    "description": "Access your Obsidian vault and GitHub repository content",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com:8002",
+      "description": "Personal Knowledge API Server"
+    }
+  ],
+  "paths": {
+    "/knowledge/search": {
+      "get": {
+        "summary": "Search across all knowledge sources",
+        "description": "Search both Obsidian vault and GitHub repository for relevant content",
+        "operationId": "searchAllKnowledge",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query to find relevant content"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "description": "Maximum number of results to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results from all knowledge sources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {
+                      "type": "string"
+                    },
+                    "obsidian_results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": "string"
+                          },
+                          "source": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "github_results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file_name": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          },
+                          "repository": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total_found": {
+                      "type": "integer"
+                    },
+                    "summary": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/obsidian/search": {
+      "get": {
+        "summary": "Search Obsidian vault",
+        "description": "Search specifically within your Obsidian vault notes",
+        "operationId": "searchObsidianVault",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query for Obsidian notes"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5
+            },
+            "description": "Maximum number of results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Obsidian vault search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {
+                      "type": "string"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": "string"
+                          },
+                          "relevance": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total_found": {
+                      "type": "integer"
+                    },
+                    "summary": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/obsidian/get-note": {
+      "get": {
+        "summary": "Get specific Obsidian note",
+        "description": "Retrieve the full content of a specific note by title",
+        "operationId": "getSpecificNote",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Exact title of the note to retrieve"
+          },
+          {
+            "name": "file_path",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional file path for specific matching"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Full note content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "file_path": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/obsidian/list-notes": {
+      "get": {
+        "summary": "List available notes",
+        "description": "Get a list of available notes in the Obsidian vault",
+        "operationId": "listObsidianNotes",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            },
+            "description": "Number of notes to return"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "description": "Number of notes to skip"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available notes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "notes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": "string"
+                          },
+                          "content_preview": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "returned_count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/github/search": {
+      "get": {
+        "summary": "Search GitHub repository",
+        "description": "Search within your GitHub repository files",
+        "operationId": "searchGitHubRepository",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query for GitHub repository"
+          },
+          {
+            "name": "repository",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "flamesphere"
+            },
+            "description": "Repository name to search"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5
+            },
+            "description": "Maximum number of results"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GitHub repository search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {
+                      "type": "string"
+                    },
+                    "repository": {
+                      "type": "string"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file_name": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total_found": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
