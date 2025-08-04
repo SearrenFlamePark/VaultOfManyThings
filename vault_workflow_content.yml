@@ -1,0 +1,26 @@
+name: Sync Vault to OpenAI Vector Store
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.md'
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours for stability
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: Sync Obsidian Vault to Vector Store
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Sync to Atticus Vector Store
+      uses: shmatt/assistants-vector-store-sync@v1
+      with:
+        pattern: '**/*.md'
+        token: ${{ secrets.OPENAI_API_KEY }}
+        key: atticus-obsidian-vault
