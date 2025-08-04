@@ -6,7 +6,7 @@ from datetime import datetime
 import io
 
 class ChatGPTBackendTester:
-    def __init__(self, base_url="https://c9226605-096b-4da8-b651-5f108cab0abe.preview.emergentagent.com"):
+    def __init__(self, base_url="https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"):
         self.base_url = base_url
         self.api_url = f"{base_url}/api"
         self.tests_run = 0

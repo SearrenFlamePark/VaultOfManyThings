@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 class WindowsObsidianSync:
     def __init__(self):
-        self.api_url = "https://c9226605-096b-4da8-b651-5f108cab0abe.preview.emergentagent.com"
+        self.api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
         self.vaults = {
             "vaultofmanythings": r"C:\vaultclean\vaultofmanythings",
             "searrenobsidianvault": r"C:\users\delph\Onedrive\searrenobsidianvault"
