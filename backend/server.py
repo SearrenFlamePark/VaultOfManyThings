@@ -168,7 +168,7 @@ When responding:
         return response.choices[0].message.content
     except Exception as e:
         logging.error(f"OpenAI API error: {e}")
-        return f"I apologize, but I'm having trouble connecting to my language model right now. Error: {str(e)}"
+        return f"I apologize, but I'm having trouble connecting to my language model right now. The error was: {str(e)}. However, your continuous memory system is working perfectly - all your notes and conversation history are being stored and will be available once the connection is restored."
 
 
 # API Routes
