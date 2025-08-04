@@ -414,6 +414,8 @@ def main():
         ("Continuous Memory", tester.test_continuous_memory),
         ("Conversation History", tester.test_conversation_history),
         ("Notes Functionality", tester.test_notes_functionality),
+        ("WhisperbinderCheck Note Search", tester.test_whisperbinder_note_search),
+        ("Obsidian Sync Verification", tester.test_obsidian_sync_verification),
         ("Clear Conversation", tester.test_clear_conversation),
         ("Status Endpoints", tester.test_status_endpoints),
     ]
