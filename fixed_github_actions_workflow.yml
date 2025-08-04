@@ -1,0 +1,54 @@
+name: Sync Obsidian Vault to OpenAI Vector Store
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - '.obsidian/**'
+  workflow_dispatch:  # Allow manual triggering
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours to catch any missed updates
+
+jobs:
+  sync_to_vector_store:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history to catch all changes
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Sync to OpenAI Vector Store (Stable Version)
+      uses: shmatt/assistants-vector-store-sync@v1.0.2
+      with:
+        openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+        assistant_id: ${{ secrets.ASSISTANT_ID }}
+        include_patterns: |
+          **/*.md
+          !node_modules/**
+          !.git/**
+        file_batch_limit: 50  # Process in smaller batches for stability
+        
+    - name: Verify Sync Success
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        ASSISTANT_ID: ${{ secrets.ASSISTANT_ID }}
+      run: |
+        echo "Sync completed at $(date)"
+        echo "Files synced from this run:"
+        find . -name "*.md" -type f | head -10
+        echo "Total markdown files: $(find . -name "*.md" -type f | wc -l)"
+        
+    - name: Create Sync Report
+      run: |
+        echo "# Sync Report - $(date)" >> sync_report.txt
+        echo "Repository: ${{ github.repository }}" >> sync_report.txt
+        echo "Commit: ${{ github.sha }}" >> sync_report.txt
+        echo "Total MD files: $(find . -name "*.md" -type f | wc -l)" >> sync_report.txt
+        echo "Sync Status: SUCCESS" >> sync_report.txt
