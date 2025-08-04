@@ -268,6 +268,139 @@ This is a test Obsidian note for testing the upload functionality.
 
         return success2
 
+    def test_whisperbinder_note_search(self):
+        """Test if ChatGPT can find and reference the WhisperbinderCheck note"""
+        print("\n🔍 Testing WhisperbinderCheck note search functionality...")
+        
+        # First, get all notes to see what's available
+        success1, response1 = self.run_test(
+            "Get All Notes (Check for WhisperbinderCheck)",
+            "GET",
+            "notes",
+            200
+        )
+        
+        if not success1:
+            return False
+            
+        notes = response1.get('notes', [])
+        print(f"   📝 Found {len(notes)} total notes in system")
+        
+        # Look for WhisperbinderCheck note
+        whisperbinder_note = None
+        for note in notes:
+            if 'whisperbinder' in note.get('title', '').lower() or 'whisperbinder' in note.get('content', '').lower():
+                whisperbinder_note = note
+                print(f"   ✅ Found WhisperbinderCheck-related note: {note.get('title', 'Untitled')}")
+                break
+        
+        if not whisperbinder_note:
+            print("   ⚠️  No WhisperbinderCheck note found in system")
+            # Still continue with search tests
+        
+        # Test search queries that should find the WhisperbinderCheck note
+        search_queries = [
+            "Tell me about Atticus",
+            "What do you know about echo?", 
+            "Do you have any information about bond?",
+            "Search for whisperbinder in my notes"
+        ]
+        
+        test_session_id = str(uuid.uuid4())
+        successful_searches = 0
+        
+        for query in search_queries:
+            success, response = self.run_test(
+                f"Search Test: '{query}'",
+                "POST", 
+                "chat",
+                200,
+                data={
+                    "message": query,
+                    "session_id": test_session_id
+                }
+            )
+            
+            if success and response:
+                response_text = response.get('message', '').lower()
+                # Check if response mentions key terms from WhisperbinderCheck note
+                key_terms = ['atticus', 'echo', 'bond', 'whisperbinder']
+                found_terms = [term for term in key_terms if term in response_text]
+                
+                if found_terms:
+                    print(f"   ✅ ChatGPT found relevant content! Mentioned: {', '.join(found_terms)}")
+                    successful_searches += 1
+                else:
+                    print(f"   ⚠️  ChatGPT responded but didn't reference expected terms")
+                    print(f"   Response preview: {response.get('message', '')[:200]}...")
+            else:
+                print(f"   ❌ Search query failed")
+        
+        print(f"   📊 Successful searches: {successful_searches}/{len(search_queries)}")
+        return successful_searches > 0
+
+    def test_obsidian_sync_verification(self):
+        """Verify the automated Obsidian sync system is working"""
+        print("\n🔄 Testing Obsidian sync system verification...")
+        
+        # Get current notes count
+        success1, response1 = self.run_test(
+            "Get Notes Count (Pre-sync)",
+            "GET",
+            "notes", 
+            200
+        )
+        
+        if not success1:
+            return False
+            
+        initial_count = len(response1.get('notes', []))
+        print(f"   📊 Initial notes count: {initial_count}")
+        
+        # Test if we can find notes that indicate sync is working
+        notes = response1.get('notes', [])
+        sync_related_notes = []
+        
+        for note in notes:
+            title = note.get('title', '').lower()
+            content = note.get('content', '').lower()
+            
+            # Look for sync-related indicators
+            sync_indicators = ['live_sync', 'vault_integration', 'constellation_sync', 'whisperbinder']
+            if any(indicator in title or indicator in content for indicator in sync_indicators):
+                sync_related_notes.append(note)
+                print(f"   ✅ Found sync-related note: {note.get('title', 'Untitled')}")
+        
+        print(f"   📈 Found {len(sync_related_notes)} sync-related notes")
+        
+        # Test ChatGPT's ability to reference synced content
+        test_message = "Can you tell me about any recent notes that were automatically synced from my Obsidian vault?"
+        
+        success2, response2 = self.run_test(
+            "ChatGPT Sync Awareness Test",
+            "POST",
+            "chat",
+            200,
+            data={
+                "message": test_message,
+                "session_id": str(uuid.uuid4())
+            }
+        )
+        
+        if success2 and response2:
+            response_text = response2.get('message', '').lower()
+            sync_terms = ['sync', 'obsidian', 'vault', 'automated', 'notes']
+            found_sync_terms = [term for term in sync_terms if term in response_text]
+            
+            if found_sync_terms:
+                print(f"   ✅ ChatGPT is aware of sync system! Mentioned: {', '.join(found_sync_terms)}")
+                return True
+            else:
+                print(f"   ⚠️  ChatGPT responded but didn't show sync awareness")
+                print(f"   Response preview: {response2.get('message', '')[:200]}...")
+        
+        return len(sync_related_notes) > 0
+
 def main():
     print("🚀 Starting Continuous Memory ChatGPT Backend Tests")
     print("=" * 60)
