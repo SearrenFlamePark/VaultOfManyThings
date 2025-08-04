@@ -13,7 +13,7 @@ from pathlib import Path
 class ObsidianSyncSetup:
     def __init__(self):
         self.config_file = Path.home() / ".obsidian_sync_config.json"
-        self.api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+        self.api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     def save_config(self, vault_path):
         """Save configuration to file"""

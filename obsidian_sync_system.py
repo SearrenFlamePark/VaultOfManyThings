@@ -248,7 +248,7 @@ def main():
     
     # Configuration - Update these paths for your system
     VAULT_PATH = input("Enter your Obsidian vault path: ").strip()
-    API_URL = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+    API_URL = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     if not VAULT_PATH:
         logger.error("Vault path is required")

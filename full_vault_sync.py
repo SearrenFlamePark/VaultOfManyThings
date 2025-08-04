@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 class FullVaultSync:
     def __init__(self):
-        self.api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+        self.api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
         
         # Your vault locations
         self.vault_paths = [
@@ -237,7 +237,7 @@ async def main():
     
     print(f"""
 🎯 NEXT STEPS:
-1. Go to: https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com
+1. Go to: https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com
 2. Ask ChatGPT: "How many notes do you have access to now?"
 3. Test: "What notes do you have about [any topic from your vault]?"
 

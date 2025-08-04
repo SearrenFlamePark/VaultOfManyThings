@@ -11,7 +11,7 @@ from datetime import datetime
 def export_obsidian_for_custom_gpt():
     """Export all Obsidian notes in a format suitable for Custom GPT Knowledge upload"""
     
-    api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+    api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     print("📚 EXPORTING OBSIDIAN VAULT FOR CUSTOM GPT")
     print("=" * 50)

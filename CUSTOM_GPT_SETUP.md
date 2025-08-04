@@ -2,7 +2,7 @@
 
 ## ✅ **WHAT I BUILT FOR YOU:**
 
-**External API** running at: `https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com:8002`
+**External API** running at: `https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com:8002`
 
 This API gives your Custom GPT access to:
 - ✅ **653 Obsidian notes** from your vault
@@ -20,7 +20,7 @@ This API gives your Custom GPT access to:
 
 ### **Step 2: Add the Action**
 1. Click **"Create new action"**
-2. **Import from URL**: `https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com:8002/openapi.json`
+2. **Import from URL**: `https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com:8002/openapi.json`
 
 **OR** if that doesn't work:
 

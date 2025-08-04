@@ -9,7 +9,7 @@ import json
 
 def clear_existing_notes():
     """Clear existing notes from ChatGPT system"""
-    api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+    api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     try:
         print("🧹 CLEARING EXISTING NOTES...")
@@ -37,7 +37,7 @@ def clear_existing_notes():
 
 def show_current_notes():
     """Show what notes are currently in the system"""
-    api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+    api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     try:
         response = requests.get(f"{api_url}/api/notes")
@@ -76,7 +76,7 @@ def main():
 🎯 NEXT STEPS TO AVOID DUPLICATES:
 
 1. OPTION A - Manual Upload (Clean):
-   - Go to: https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com
+   - Go to: https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com
    - Current notes ({len(current_notes)}) will be mixed with new uploads
    - Upload your vault files in batches
    - Some duplicates may occur but that's OK

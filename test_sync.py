@@ -12,7 +12,7 @@ def test_api_connection():
     """Test connection to continuous memory API"""
     print("🔗 Testing API connection...")
     
-    api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+    api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     try:
         response = requests.get(f"{api_url}/api/notes", timeout=10)
@@ -34,7 +34,7 @@ def test_file_upload():
     """Test uploading a file to verify the system works"""
     print("\n📤 Testing file upload...")
     
-    api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+    api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
     
     # Create a test file
     test_content = f"""# Sync Test {time.time()}

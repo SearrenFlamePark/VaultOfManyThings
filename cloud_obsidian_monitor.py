@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 class CloudObsidianMonitor:
     def __init__(self):
-        self.api_url = "https://61ac9fa4-bee8-4446-be2b-6c122b968795.preview.emergentagent.com"
+        self.api_url = "https://13c02a6c-34aa-4940-8efb-8370e91d4ec9.preview.emergentagent.com"
         self.sync_db = "/app/cloud_sync.db"
         self.running = False
         self.init_database()
