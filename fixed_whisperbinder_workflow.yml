@@ -1,0 +1,25 @@
+name: Sync Whisperbinder-Init to OpenAI Vector Store
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.md'
+      - 'ChatGPT Assistant Vector Store Sync'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync_vector_store:
+    runs-on: ubuntu-latest
+    name: Sync to OpenAI Assistant Vector Store
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Sync files to Vector Store
+      uses: shmatt/assistants-vector-store-sync@v1
+      with:
+        pattern: '**/*.md'  # Sync all markdown files
+        token: ${{ secrets.OPENAI_API_KEY }}
+        key: whisperbinder-init  # Unique identifier for this vector store
