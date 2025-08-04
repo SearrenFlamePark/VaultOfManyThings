@@ -1,0 +1,18 @@
+{
+  "backup_id": "20250804_084813",
+  "timestamp": "2025-08-04T08:48:13.440215",
+  "file_path": "/app/backups/chatgpt_memory_backup_20250804_084813.json.gz",
+  "file_size_bytes": 236,
+  "collections": {
+    "conversations": 0,
+    "obsidian_notes": 0,
+    "repository_files": 0,
+    "repositories": 0
+  },
+  "statistics": {
+    "total_collections": 4,
+    "total_documents": 0,
+    "backup_duration_seconds": 0.004549
+  },
+  "hash_file": "/app/backups/chatgpt_memory_backup_20250804_084813.json.gz.sha256"
+}
