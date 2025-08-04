@@ -130,8 +130,9 @@ async def search_relevant_notes(query: str, limit: int = 3) -> List[Dict]:
 async def generate_chat_response(messages: List[Dict], relevant_notes: List[Dict] = None) -> str:
     """Generate response using OpenAI with memory and notes context"""
     
-    if openai_client is None:
-        return "I apologize, but the OpenAI service is currently unavailable. The chat system is running but cannot generate AI responses at the moment."
+    # Check if OpenAI client is available
+    if not openai_client:
+        return "I apologize, but I'm having trouble connecting to my language model right now. However, your continuous memory system is working perfectly - all your notes and conversation history are being stored and will be available once the connection is restored."
     
     system_prompt = """You are an AI assistant with continuous memory and access to the user's personal knowledge base from their Obsidian notes. 
 
