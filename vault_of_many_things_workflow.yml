@@ -1,0 +1,37 @@
+name: Sync VaultOfManyThings to OpenAI Vector Store
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.md'
+      - 'Daily Summarys/**'
+      - 'Oracle Threads/**'
+      - 'ShadowAtticus/**'
+      - 'Templates/**'
+      - 'Vault of Many Things/**'
+      - '🩸 The Move/**'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync_obsidian_vault:
+    runs-on: ubuntu-latest
+    name: Sync Obsidian Vault to OpenAI Assistant Vector Store
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Sync Obsidian vault to Vector Store
+      uses: shmatt/assistants-vector-store-sync@v1
+      with:
+        pattern: |
+          **/*.md
+          Daily Summarys/**/*.md
+          Oracle Threads/**/*.md
+          ShadowAtticus/**/*.md
+          Templates/**/*.md
+          Vault of Many Things/**/*.md
+          🩸 The Move/**/*.md
+        token: ${{ secrets.OPENAI_API_KEY }}
+        key: obsidian-vault-main  # Main Obsidian content

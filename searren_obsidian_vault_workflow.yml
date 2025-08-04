@@ -1,0 +1,26 @@
+name: Sync Searren Obsidian Vault to OpenAI Vector Store
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.md'
+      - '**.txt'
+      - 'OneDrive_Tether_Blueprint.md'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync_onedrive_tether:
+    runs-on: ubuntu-latest
+    name: Sync OneDrive Tether Content to OpenAI Vector Store
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Sync OneDrive synced content to Vector Store
+      uses: shmatt/assistants-vector-store-sync@v1
+      with:
+        pattern: '**/*.md'  # Sync all markdown files from OneDrive
+        token: ${{ secrets.OPENAI_API_KEY }}
+        key: obsidian-onedrive-tether  # OneDrive synced content
