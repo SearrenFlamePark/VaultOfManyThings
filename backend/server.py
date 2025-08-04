@@ -24,16 +24,32 @@ db = client[os.environ['DB_NAME']]
 
 # OpenAI client
 openai_client = None
-try:
-    # Clean initialization without any proxy settings
-    openai_client = OpenAI(
-        api_key=os.environ.get('OPENAI_API_KEY'),
-        timeout=30.0,
-    )
-    print("✅ OpenAI client initialized successfully")
-except Exception as e:
-    print(f"❌ OpenAI client initialization failed: {e}")
-    openai_client = None
+
+def initialize_openai_client():
+    """Initialize OpenAI client with proper error handling"""
+    global openai_client
+    try:
+        import openai
+        openai_client = openai.OpenAI(
+            api_key=os.environ.get('OPENAI_API_KEY')
+        )
+        print("✅ OpenAI client initialized successfully")
+        return True
+    except Exception as e:
+        print(f"❌ OpenAI client initialization failed: {e}")
+        try:
+            # Fallback: try different initialization
+            openai_client = openai.OpenAI()
+            openai_client.api_key = os.environ.get('OPENAI_API_KEY')
+            print("✅ OpenAI client initialized with fallback method")
+            return True
+        except Exception as e2:
+            print(f"❌ Fallback initialization also failed: {e2}")
+            openai_client = None
+            return False
+
+# Initialize the client
+initialize_openai_client()
 
 # Create the main app without a prefix
 app = FastAPI()
