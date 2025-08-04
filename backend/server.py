@@ -22,34 +22,24 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# OpenAI client
+# OpenAI client - simple initialization
 openai_client = None
 
-def initialize_openai_client():
-    """Initialize OpenAI client with proper error handling"""
-    global openai_client
-    try:
-        import openai
-        openai_client = openai.OpenAI(
-            api_key=os.environ.get('OPENAI_API_KEY')
-        )
+try:
+    from openai import OpenAI
+    import os
+    api_key = os.environ.get('OPENAI_API_KEY')
+    if api_key:
+        openai_client = OpenAI(api_key=api_key)
         print("✅ OpenAI client initialized successfully")
-        return True
-    except Exception as e:
-        print(f"❌ OpenAI client initialization failed: {e}")
-        try:
-            # Fallback: try different initialization
-            openai_client = openai.OpenAI()
-            openai_client.api_key = os.environ.get('OPENAI_API_KEY')
-            print("✅ OpenAI client initialized with fallback method")
-            return True
-        except Exception as e2:
-            print(f"❌ Fallback initialization also failed: {e2}")
-            openai_client = None
-            return False
-
-# Initialize the client
-initialize_openai_client()
+    else:
+        print("❌ No OpenAI API key found")
+except ImportError as e:
+    print(f"❌ OpenAI import error: {e}")
+except Exception as e:
+    print(f"❌ OpenAI client initialization failed: {e}")
+    # Try to work around the issue by creating a mock that will fail gracefully
+    openai_client = None
 
 # Create the main app without a prefix
 app = FastAPI()
